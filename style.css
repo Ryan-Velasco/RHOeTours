@@ -71,9 +71,15 @@ ul {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--deep-navy);
+    display: flex;
+    align-items: center;
+}
+
+.logo svg {
+    width: 250px; /*Default size for desktop*/
+    height: auto;
+    display: block;
+    transition: width 0.3s ease;
 }
 
 .logo span { color: var(--primary-orange); }
@@ -232,11 +238,31 @@ footer {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Can be replaced with a JS mobile menu later */
+@media (max-width: 992px) {
+    /* Tablet view */
+    .logo svg {
+        width: 200px; /* Shrinks the logo slightly on tablets */
     }
+}
+
+@media (max-width: 768px) {
+    /* Mobile view */
+    .nav-links {
+        display: none; /* Hides the desktop links */
+    }
+    
+    .logo svg {
+        width: 160px; /* Shrinks the logo more for phones */
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small Mobile view */
+    .logo svg {
+        width: 140px; /* Ensures it fits on tiny screens without crowding */
     }
 }
