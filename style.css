@@ -501,3 +501,102 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* =========================================
+   Services Detail Page Styles
+   ========================================= */
+
+/* Detailed Horizontal Cards */
+.service-detail-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 4rem;
+    transition: transform 0.3s;
+}
+
+.service-detail-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-detail-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.service-img {
+    flex: 0 0 45%; /* Image takes up 45% of the card */
+    background-color: var(--deep-navy); /* Fallback */
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+/* Image Placeholders - Replace these URLs! */
+.accom-bg { background-image: url('accommodation.jpg'); }
+.transport-bg { background-image: url('transport.jpg'); }
+.tours-bg { background-image: url('tours.jpg'); }
+
+.service-info {
+    flex: 1; /* Text takes up the remaining space */
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-info .subtitle {
+    color: var(--primary-orange);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.service-info p {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+/* 2-Column Grid for Launching Soon */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem 2rem 2rem;
+}
+
+/* =========================================
+   Responsive Fixes for Services
+   ========================================= */
+@media (max-width: 992px) {
+    .service-info {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack the horizontal cards vertically on mobile */
+    .service-detail-card, 
+    .service-detail-card.reverse {
+        flex-direction: column;
+    }
+    
+    .service-img {
+        flex: auto;
+        height: 250px;
+        min-height: 250px;
+    }
+    
+    .service-info {
+        padding: 2rem 1.5rem;
+    }
+}
